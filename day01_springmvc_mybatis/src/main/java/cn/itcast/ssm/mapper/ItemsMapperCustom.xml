@@ -11,7 +11,7 @@
    				items.name LIKE '%${itemsCustom.name}%'
    			</if>
    		</if>
-	
+
    </sql>
   	
   	<!-- 商品列表查询 -->
