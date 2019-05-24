@@ -12,27 +12,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
     @RequestMapping("/list")
     public String list() {
-        return "user/userlist";
+        return "/user/userlist";
     }
 
     @RequestMapping("/add")
     public String add() {
-        return "user/userlist";
+        return "/user/userlist";
     }
 
     @RequestMapping("/update")
     public String update() {
-        return "user/userlist";
+        return "/user/userlist";
     }
 
     @RequestMapping("/delete")
     public String delete() {
-        return "user/userlist";
+        return "/user/userlist";
     }
 
     @RequestMapping("/query")
     public String query() {
-        return "user/userlist";
+        return "/user/userlist";
     }
 
 }

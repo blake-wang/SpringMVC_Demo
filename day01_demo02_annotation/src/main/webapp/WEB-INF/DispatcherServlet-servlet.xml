@@ -15,7 +15,7 @@
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
 
     <!--1.配置注解扫描位置-->
-    <context:component-scan base-package="com.wanglei.*"/>
+    <context:component-scan base-package="com.wanglei.web.controller"/>
     <!--<mvc:annotation-driven />-->
 
     <!--2.配置处理器映射，通过注解来查找-->
