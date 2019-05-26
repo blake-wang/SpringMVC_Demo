@@ -11,6 +11,8 @@
     <modules>
         <module>day01_springmvcfirst</module>
         <module>day01_springmvc_mybatis</module>
+        <module>day01_demo01</module>
+        <module>day01_demo02_annotation</module>
     </modules>
 
     <dependencies>
