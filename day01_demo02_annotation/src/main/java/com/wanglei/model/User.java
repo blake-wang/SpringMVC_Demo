@@ -1,5 +1,8 @@
 package com.wanglei.model;
 
+import java.util.Arrays;
+import java.util.Date;
+
 /**
  * @Auther: WangL
  * @Date: 2019/5/18 09:03
@@ -8,7 +11,9 @@ public class User {
     private String username;
     private String password;
     private String gender;
-    private String birthday;
+    private Date birthday;
+    private int age;
+    private String[] hobbyIds;
 
     public String getUsername() {
         return username;
@@ -34,12 +39,28 @@ public class User {
         this.gender = gender;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String[] getHobbyIds() {
+        return hobbyIds;
+    }
+
+    public void setHobbyIds(String[] hobbyIds) {
+        this.hobbyIds = hobbyIds;
     }
 
     @Override
@@ -48,7 +69,9 @@ public class User {
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", gender='" + gender + '\'' +
-                ", birthday='" + birthday + '\'' +
+                ", birthday=" + birthday +
+                ", age=" + age +
+                ", hobbyIds=" + Arrays.toString(hobbyIds) +
                 '}';
     }
 }
