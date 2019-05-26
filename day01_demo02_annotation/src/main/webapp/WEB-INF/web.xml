@@ -24,6 +24,13 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <!--多配置一套路径，用来出来restful请求-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>DispatcherServlet</servlet-name>-->
+        <!--<url-pattern>/rest/*</url-pattern>-->
+    <!--</servlet-mapping>-->
+
+
     <!--解决post请求中文乱码问题-->
     <filter>
         <filter-name>EncodingFilter</filter-name>

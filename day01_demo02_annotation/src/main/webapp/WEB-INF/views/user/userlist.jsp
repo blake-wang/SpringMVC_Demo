@@ -20,6 +20,7 @@
                 <td>${user.birthday}</td>
                 <td>
                 <a href="${pageContext.request.contextPath}/edit?id=${user.id}" >修改</a>
+                &nbsp;<a href="${pageContext.request.contextPath}/edit1/${user.id}" >修改</a>
                 </td>
             </tr>
         </c:forEach>

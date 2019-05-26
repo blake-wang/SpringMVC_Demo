@@ -4,7 +4,9 @@ import com.wanglei.model.User;
 import com.wanglei.model.UserExt;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 import java.util.ArrayList;
@@ -17,11 +19,11 @@ import java.util.List;
  * @Date: 2019/5/17 21:50
  */
 @Controller
-//@RequestMapping("/user")
+@RequestMapping("/user")
 public class UserController {
 
     //使用jstl进行页面数据的回显
-    @RequestMapping(value = "list")
+    @RequestMapping(value = "/list")
     public String list(Model model) {
         System.out.println(model.getClass());
 
@@ -138,8 +140,36 @@ public class UserController {
         //正常的处理步骤是通过id，查询数据库，返回一个User对象，把user对象存在model
         User user1 = new User(1, "海涛", "男", new Date(), 30); //假设从数据库查
         user1.setId(id);
-        model.addAttribute("user",user1);
+        model.addAttribute("user", user1);
         return "/user/useredit";
     }
+
+    //restfull风格url
+    @RequestMapping(value = "/edit1/{id}")
+    public String edit1(@PathVariable int id, Model model) {
+        System.out.println("接收到修改的id：" + id);
+        //正常的处理步骤是通过id，查询数据库，返回一个User对象，把user对象存在model
+        User user1 = new User(1, "海涛", "男", new Date(), 30); //假设从数据库查
+        user1.setId(id);
+        model.addAttribute("user", user1);
+        return "/user/useredit";
+    }
+
+    //请求转发 ： 跳转到相同控制器
+    @RequestMapping("/test1")
+    public String test1() {
+        System.out.println("请求转发");
+        //同一个控制器的转发
+        return "forward:list";
+    }
+
+
+    //接收参数，注意，不要使用基本类型，建议使用包装类型
+    @RequestMapping("/test2")
+    public String test2(@RequestParam(value = "uid", required = true, defaultValue = "789") Integer uid) {
+        System.out.println("uid:" + uid);
+        return "forward:list";
+    }
+
 
 }
