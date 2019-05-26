@@ -24,10 +24,32 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <!--如果加载静态的资源，需要添加下面四项-->
+    <servlet-mapping>  
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>  
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.gif</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>  
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>  
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>
+     
+
     <!--多配置一套路径，用来出来restful请求-->
     <!--<servlet-mapping>-->
-        <!--<servlet-name>DispatcherServlet</servlet-name>-->
-        <!--<url-pattern>/rest/*</url-pattern>-->
+    <!--<servlet-name>DispatcherServlet</servlet-name>-->
+    <!--<url-pattern>/rest/*</url-pattern>-->
     <!--</servlet-mapping>-->
 
 

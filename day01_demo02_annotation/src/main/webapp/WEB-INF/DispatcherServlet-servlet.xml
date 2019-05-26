@@ -21,7 +21,12 @@
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
 
     <!--3.配置注解处理适配器来执行控制器的方法-->
-    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <!--配置json转换器，告诉springmvc使用jackson来转换json-->
+        <property name="messageConverters">
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+        </property>
+    </bean>
 
     <!--4.配置springmvc视图解析器  视图解析器解析的视频路径为：前缀 + 后缀-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

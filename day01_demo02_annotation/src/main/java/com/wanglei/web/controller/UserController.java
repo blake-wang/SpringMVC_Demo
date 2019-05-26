@@ -170,6 +170,4 @@ public class UserController {
         System.out.println("uid:" + uid);
         return "forward:list";
     }
-
-
 }
