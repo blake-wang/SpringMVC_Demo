@@ -8,12 +8,29 @@ import java.util.Date;
  * @Date: 2019/5/18 09:03
  */
 public class User {
+    private int id;
     private String username;
     private String password;
     private String gender;
     private Date birthday;
     private int age;
     private String[] hobbyIds;
+
+    public User(int id, String username, String gender, Date birthday, int age) {
+        this.id = id;
+        this.username = username;
+        this.gender = gender;
+        this.birthday = birthday;
+        this.age = age;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

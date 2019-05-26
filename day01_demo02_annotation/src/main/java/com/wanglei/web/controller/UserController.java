@@ -3,11 +3,14 @@ package com.wanglei.web.controller;
 import com.wanglei.model.User;
 import com.wanglei.model.UserExt;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Auther: WangL
@@ -16,8 +19,24 @@ import java.util.Date;
 @Controller
 //@RequestMapping("/user")
 public class UserController {
-    @RequestMapping(value = "list", method = RequestMethod.POST)
-    public String list() {
+
+    //使用jstl进行页面数据的回显
+    @RequestMapping(value = "list")
+    public String list(Model model) {
+        System.out.println(model.getClass());
+
+        //1、模拟数据库的数据
+        List<User> userList = new ArrayList<>();
+        User user1 = new User(1, "海涛", "男", new Date(), 30);
+        User user2 = new User(2, "刘军", "男", new Date(), 33);
+        User user3 = new User(3, "静静", "女", new Date(), 22);
+
+        userList.add(user1);
+        userList.add(user2);
+        userList.add(user3);
+
+        //2、把数据存在model
+        model.addAttribute("userList", userList);
         return "/user/userlist";
     }
 
@@ -25,7 +44,6 @@ public class UserController {
     public String toRegister() {
         return "/user/register";
     }
-
 
     /**
      * 第一种接收表单的方式：
@@ -74,7 +92,7 @@ public class UserController {
      * @return:
      * @auther: WangL
      * @date: 2019/5/25 16:12
-            */
+     */
     @RequestMapping(value = "/register3")
     public String register3(UserExt userExt) {
         System.out.println("模型中的模型");
@@ -114,5 +132,14 @@ public class UserController {
         return "/user/info";
     }
 
+    @RequestMapping(value = "/edit")
+    public String edit(int id, Model model) {
+        System.out.println("接收到修改的id：" + id);
+        //正常的处理步骤是通过id，查询数据库，返回一个User对象，把user对象存在model
+        User user1 = new User(1, "海涛", "男", new Date(), 30); //假设从数据库查
+        user1.setId(id);
+        model.addAttribute("user",user1);
+        return "/user/useredit";
+    }
 
 }
