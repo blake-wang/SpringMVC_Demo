@@ -2,7 +2,9 @@ package com.wanglei.web.controller;
 
 import com.wanglei.model.Student;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @Auther: WangL
@@ -72,16 +74,17 @@ public class StudentController {
 
     /**
      * 处理前端表单提交过来的json数据
-     *
+     * RequestBody的作用是：把json数据转成模型对象
+     * ResponseBody的作用是：返回json数据，把对象转成json字符串返回客户端
      * @param:
      * @return:
      * @auther: WangL
      * @date: 2019/5/26 18:50
      */
     @RequestMapping("/save")
-    public String save(Student stu) {
-        System.out.println(stu);
-        return "redirect:/stu/list";
+    public @ResponseBody Student save(@RequestBody Student stu) {
+        System.out.println("json数据转成模型:" + stu);
+        return stu;
     }
 
     /**

@@ -19,13 +19,14 @@
           console.log(jsonObj);
           console.log(parameters);
 
+          //jQuery提交json数据
           $.ajax({
             type:'post',
             url:url,
             contentType:'application/json;charset=utf-8',
             data:parameters,
-            success:function(respData){
-                console.log(respData);
+            success:function (respData){
+                console.log('respData:'+respData);
             }
           });
         }
