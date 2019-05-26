@@ -74,22 +74,41 @@ public class StudentController {
 
     /**
      * 处理前端表单提交过来的json数据
+     * 请求和响应都是json数据
      * RequestBody的作用是：把json数据转成模型对象
      * ResponseBody的作用是：返回json数据，把对象转成json字符串返回客户端
+     *
      * @param:
      * @return:
      * @auther: WangL
      * @date: 2019/5/26 18:50
      */
     @RequestMapping("/save")
-    public @ResponseBody Student save(@RequestBody Student stu) {
+    public @ResponseBody
+    Student save(@RequestBody Student stu) {
         System.out.println("json数据转成模型:" + stu);
         return stu;
     }
 
     /**
-     * 处理前端表单提交过来的json数据
+     * 处理前端表单提交过来的数据
+     * 请求是默认格式表单数据，响应是json数据
+     * <p>
+     * 注意：一般在公司项目开发中，请求用的是默认表单格式，响应用的是json数据
      *
+     * @param:
+     * @return:
+     * @auther: WangL
+     * @date: 2019/5/26 18:50
+     */
+    @RequestMapping("/save1")
+    public @ResponseBody
+    Student save1(Student stu) {
+        System.out.println("json数据转成模型:" + stu);
+        return stu;
+    }
+
+    /**
      * @param:
      * @return:
      * @auther: WangL

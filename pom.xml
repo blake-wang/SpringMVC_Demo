@@ -9,8 +9,6 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>day01_springmvcfirst</module>
-        <module>day01_springmvc_mybatis</module>
         <module>day01_demo01</module>
         <module>day01_demo02_annotation</module>
     </modules>
